@@ -6,6 +6,68 @@
     <title></title>
   </head>
   <body>
+<h1>JS Week 1 blog Task</h1>
 
-  </body>
+<div class="question">
+  <p><b>Q1.Mention difference between HTTP1. 1 vs HTTP2</b>
+  </p>
+  <p> Before understanding the differences between HTTP 1.1 and HTTP 2.0 we need to first understand the flow of data between server client in HTTP 1.1. Any get request sent by the 
+    user from their browser is sent as a get request to the server request the unique resource. The server responds with a HTML file and elements like images, style sheets that are
+    present in the HTML. Most of the content of HTML file is text content and for requesting new resource it will have to establish a new TCP connection with the server.</p>
+    <p>To reduce the latency introduced by the new connection and improve throughput of the client server interaction few changes with design was made. Instead of text a binary format
+    was introduced which enabled multiplexing of different streams with prioritization</p>
+    <p><b>Multiplexing</b> Since the data was no longer in text format multiple requests could interleaved by the server and assembled at the reciver improving the efficieency of the
+    data transfer. The bit format of data also allows for stream prioritization which means each request might not be executed (fetched) in the same order as in the html text but with
+    the stream priority and some of synchronization could be brought about. Also low latency elements could first be loaded and displayed while the request for image could be loading 
+  in the background.</p>
+</div>
+<div class="question">
+  <p><b>Q2.What are the version of HTTP</b></p>
+
+  <p style="padding: 5px;"> <b>HTTP/0.9</b> &emsp;   The one-line protocol: HTTP/0.9 is extremely simple: requests consist of a single line and start with the only possible method GET followed by the path to the resource (not the URL as both the protocol, server, and port are unnecessary once connected to the server).
+    The response is extremely simple too: it only consisted of the file itself. Unlike subsequent evolutions, there were no HTTP headers, meaning that only HTML files could be transmitted, but no other type of documents. There were no status or error codes: in case of a problem, a specific HTML file was 
+    send back with the description of the problem contained in it, for human consumption.</p>
+  <p style="padding: 5px;"> <b>HTTP/1.0</b>  &emsp; The period from 1991 to 1995 is one of rapid coevolution of the HTML specification, a new breed of software known as a "web browser," and the emergence and quick growth of the consumer-oriented public Internet infrastructure. It became an experimentation version in which 
+  the potential of HTTP was enhanced to include that could serve more than just hypertext documents, provide richer metadata about the request and the response, enable content negotiation, and more. In turn, the nascent community of web developers responded by producing a large number of 
+  experimental HTTP server and client implementations through an ad hoc process: implement, deploy, and see if other people adopt it.
+  Some of the chnages that that were implemented for the HTTP 1.0 were
+  <ul>
+    <li>Request may consist of multiple newline separated header fields.</li>
+    <li>Response object is prefixed with a response status line.</li>
+    <li>Response object has its own set of newline separated header fields.</li>
+    <li>Response object is not limited to hypertext.</li>
+    <li>The connection between server and client is closed after every request.</li>
+  </ul>
+</p>
+
+<p style="padding: 5px;"> <b>HTTP/1.1</b> &emsp; The HTTP/1.1 standard resolved a lot of the protocol ambiguities found in earlier versions and introduced a number of critical performance optimizations: keepalive connections, chunked encoding transfers, byte-range requests, additional caching mechanisms, transfer encodings,
+   and request pipelining. One of the difference is that we have two/more object requests, one for an HTML page and one for other data required in the page, both delivered over a single connection. This is connection keepalive in action, which allows us to reuse the existing TCP connection for multiple requests to 
+   the same host and deliver a much faster end-user experience. Either side (server/client) can terminate the TCP connection without such signal at any point, but clients and servers should provide it whenever possible to enable better connection reuse strategies on both sides.</p>
+<p style="padding: 5px;"> <b>HTTP/2.0</b>&emsp; </p>
+
+</div>
+<div class="question">
+  <p><b>Q3.List 5 difference between Browser js console vs Node js</b></p>
+  <table>
+<thead><th>Browser JS</th><th>Node JS</th></thead>
+<tbody><tr><td>Generally the front end and the backend can be in different languages</td><td>	A single language can describe both the front end and back end reducing the efforts of programmer</td></tr>
+<tr><td>In browser the general interaction is with DOM or web platform apis like cookies.Also there are built in applications like document and window</td><td>Node js provides access to apis like file system access functionality</td></tr>
+<tr><td>You cannot be certain about the browser that you use for opening the web application</td><td>In node js you control the environment and you can run the application in the specified environment</td></tr>
+</tbody>
+  </table>
+</div>
+<div class="question">
+  <p><b>Q4.what happens when you type a URL in the address bar in the browser</b></p>
+
+  <p>
+    <ul>	<li> The flow of rendering a page on  to a browser is a complex process which starts with parsing HTML and CSS code which then creates a DOM and SOM which is then converted to a tree and a possible layout is estimated and then the page is painted </li>
+      <li>Since the scripts included are executed with no parallelization generally keep the  scripts to the end which creates an illusion that page loads faster </li>
+      <li>The parsed HTML ans CSS files creates 2 object models(DOM and SOM) this is translated to a tree and each node inthe DOM /SOM is referenced by a rendered object </li> 
+      <li>Layout formation is recrusive and it starts with the root node and creates the child and continues untill the tree is finished and then starts defining the layout size and placement </li> 
+      <li>Because of this it is better to think like a browser and then write the code and follow guidelines like write all the values at once and rendering at once.</li> 
+    <li>Paint The browser then paints the rendering object and create a bitmap and put that image on to the page.</li> </ul>  </p>
+</div>
+  
+
+</body>
 </html>
